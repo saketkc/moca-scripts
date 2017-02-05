@@ -92,6 +92,8 @@ def download_idr_tfs(root_dir, metadata):
         safe_makedir(dataset_dir)
         source_url = __base_url__ + idr_record['href']
         download_peakfile(source_url, peakfilename, dataset_dir)
+        with open(os.path.join(dataset_dir, idr_record['peakfilename']+'.assembly'), 'w') as fh:
+            fh.write(idr_record['assembly'])
         save_metadata_json(metadata, dataset_dir)
         return {'assembly': idr_record['assembly'],'bedfile': os.path.join(dataset_dir, peakfilename.replace('.gz',''))}
 
@@ -115,7 +117,10 @@ def filter_metadata(metadata,
     files = metadata['files']
     biosample_term_name = metadata['biosample_term_name']
     assay_term_name = metadata['assay_term_name']
-    description = metadata['description']
+    try:
+        description = metadata['description']
+    except:
+        description = ''
     gene_name = metadata['target']['label']
     filter_records = []
     for f in files:
