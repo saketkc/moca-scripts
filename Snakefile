@@ -28,9 +28,9 @@ rule run_pipe:
         slop_length = 50
     run:
         genome = open(input.assembly).read().strip()
-        shell('source activate moca_encode && moca find_motifs -i {input} -g {genome}'
-              '-c {MOCA_CFG} -o {params.out_dir}'
-              '--slop-length {params.slop_length}'
-              '--flank-motif {params.flank_motif}'
-              '--cores {threads}'
-              '--show-progress')
+        shell('source activate moca_encode && moca find_motifs -i {input.bed} -g {genome}'
+              ' -c {MOCA_CFG} -o {params.out_dir}'
+              ' --slop-length {params.slop_length}'
+              ' --flank-motif {params.flank_motif}'
+              ' --cores {threads}'
+              ' --show-progress')
