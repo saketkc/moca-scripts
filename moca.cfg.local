@@ -1,0 +1,62 @@
+[genome:hg19]
+fasta = /media/dna/genomes/hg19/fasta/hg19.fa
+genome_table = /media/dna/genomes/hg19/fasta/hg19.sizes
+phylop_wig = /media/dna/genomes/hg19/phylop/hg19.100way.phyloP100way.bw
+phastcons_wig = /media/dna/genomes/hg19/phastCons/hg19.100way.phastCons.bw
+gerp_wig = /media/dna/genomes/hg19/gerp/All_hg19_RS.bw
+
+[genome:hg38]
+fasta = /media/dna/genomes/hg38/fasta/hg38.fa
+genome_table = /media/dna/genomes/hg38/fasta/hg38.chrom.sizes
+phylop_wig = /media/dna/genomes/hg38/phylop/hg38.phyloP100way.bw
+phastcons_wig = /media/dna/genomes/hg38/phylop/hg38.phastCons100way.bw
+
+[genome:GRCh38]
+fasta = /media/dna/genomes/hg38/fasta/hg38.fa
+genome_table = /media/dna/genomes/hg38/fasta/hg38.chrom.sizes
+phylop_wig = /media/dna/genomes/hg38/phylop/hg38.phyloP100way.bw
+phastcons_wig = /media/dna/genomes/hg38/phylop/hg38.phastCons100way.bw
+
+[genome:mm9]
+fasta = /media/dna/genomes/mm9/fasta/mm9.fa
+genome_table = /media/dna/genomes/mm9/fasta/mm9.chrom.sizes
+phylop_wig = /media/dna/genomes/mm9/phylop/mm9_phylop.wig
+gerp_wig = /media/dna/genomes/mm9/gerp/All_mm9_RS.wig
+
+[genome:mm10]
+fasta = /media/dna/genomes/mm10/fasta/mm10.fa
+genome_table = /media/dna/genomes/mm10/fasta/mm10.chrom.sizes
+phylop_wig = /media/dna/genomes/mm10/phylop/mm10.60way.phyloP60way.bw
+phastcons_wig = /media/dna/genomes/mm10/phylop/mm10.60way.phastCons.bw
+
+[genome:dm6]
+fasta = /media/dna/genomes/dm6/dm6.fa
+genome_table = /media/dna/genomes/dm6/dm6.chrom.sizes
+phastcons_wig = /media/dna/genomes/dm6/phylop/dm6.27way.phastCons.bw
+phylop_wig = /media/dna/genomes/dm6/phylop/dm6.phyloP27way.bw
+
+[genome:dm3]
+fasta = /media/dna/genomes/dm3/dm3.fa
+genome_table = /media/dna/genomes/dm3/dm3.chrom.sizes
+phastcons_wig = /media/dna/genomes/dm3/phastCons/dm3.15way.phastCons.bw
+
+[genome:ce6]
+fasta = /media/dna/genomes/ce6/ce6.fa
+genome_table = /media/dna/genomes/ce6/ce6.chrom.sizes
+phastcons_wig = /media/dna/genomes/ce6/phastcons/ce6_phastCons6way.wig
+
+[genome:ce10]
+fasta = /media/dna/genomes/ce10/fasta/ce10.fa
+genome_table = /media/dna/genomes/ce10/fasta/ce10.chrom.sizes
+phastcons_wig = /media/dna/genomes/ce10/phastCons/ce10.phastCons9way.bw
+phylop_wig = /media/dna/genomes/ce10/phylop/ce10.phyloP9way.bw
+
+[genome:ce11]
+fasta = /media/dna/genomes/ce11/fasta/ce11.fa
+genome_table = /media/dna/genomes/ce11/fasta/ce11.chrom.sizes
+phastcons_wig = /media/dna/genomes/ce11/phastCons/ce11.phastCons26way.bw
+phylop_wig = /media/dna/genomes/ce11/phyloP/ce11.phyloP26way.bw
+
+[binaries]
+meme =
+
