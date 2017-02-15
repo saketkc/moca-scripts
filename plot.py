@@ -3,6 +3,21 @@ MOCA_CFG = '/home/saket/github/moca-scripts/moca.cfg.local'
 from itertools import chain
 import glob
 import os
+import subprocess
+import multiprocessing
+
+def work(params):
+    meme_dir, centrimo_dir, fimo_sample, fimo_random, motif_number, out_dir, genome, title = params
+    subprocess.run('source activate mocadev && moca plot --meme_dir {} --centrimo-dir {} --fimo-dir-sample {} --fimo-dir-control {} --flank-motif 5 --motif {} --oc {} -c {} -g {} --name {}'.format(meme_dir,
+    centrimo_dir,
+    fimo_sample,
+    fimo_random,
+    motif_number,
+    out_dir,
+    MOCA_CFG,
+    genome,
+    title), check=True, shell=True, executable="/bin/bash")
+
 
 SAMPLES = glob.glob('{}/**/logo_rc*.png'.format(OUT_DIR), recursive=True)
 DIRECTORIES = []
@@ -13,6 +28,7 @@ MOTIF_NUMBERS = []
 TITLES = []
 GENOMES = []
 
+jobs = []
 for sample in SAMPLES:
     sample = sample.replace('.png', '')
     motif_number = sample[-1]
@@ -30,12 +46,12 @@ for sample in SAMPLES:
 
     for meme_dir, centrimo_dir, fimo_sample, fimo_random, motif_number, genome, title in zip(DIRECTORIES, CENTRIMO_SAMPLES, FIMO_SAMPLES, FIMO_RANDOM, MOTIF_NUMBERS, GENOMES, TITLES):
         out_dir = os.path.join(meme_dir.replace('meme_out', ''), 'moca_plots')
-        print('source activate mocadev && moca plot --meme_dir {} --centrimo-dir {} --fimo-dir-sample {} --fimo-dir-control {} --flank-motif 5 --motif {} --oc {} -c {} -g {} --name {}'.format(meme_dir,
-        centrimo_dir,
-        fimo_sample,
-        fimo_random,
-        motif_number,
-        out_dir,
-        MOCA_CFG,
-        genome,
-        title))
+        params = (meme_dir, centrimo_dir, fimo_sample, fimo_random, motif_number, out_dir, genome, title)
+        jobs.append(params)
+
+
+pool = multiprocessing.Pool(8)
+results = pool.map_async(work, jobs)
+pool.close()
+pool.join()
+

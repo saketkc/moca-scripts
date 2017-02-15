@@ -13,7 +13,7 @@ SAMPLES = [sample.replace('.bed','').replace(RAWDATA_DIR+'/','') for sample in S
 
 rule all:
     input:
-        expand('{sample}/moca_output/meme_out/logo1.png', sample=SAMPLES)
+        expand('{sample}/moca_output/moca_plots/moca_PhyloP_1.png', sample=SAMPLES)
 
 rule run_pipe:
     input:
